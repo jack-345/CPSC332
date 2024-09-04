@@ -1,1 +1,1 @@
-# CPSC332
+# CPSC332 Fall 2024
