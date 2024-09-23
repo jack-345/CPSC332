@@ -23,6 +23,17 @@
         tr {
             background-color: brown;
         }
+
+        /*class selector*/
+        .no-click {
+            color: chocolate;
+            background-color: crimson;
+        }
+
+        /*ID selector*/
+        #table-span {
+            color: aliceblue;
+        }
     </style>
 
 </head>
@@ -31,7 +42,7 @@
         <caption>This is a table</caption>
         <tr>
             <th>
-                <span>
+                <span id = "table-span">
                     Table heading in span
                 </span>
             </th>
@@ -53,7 +64,7 @@
     </table>
 
     <ol>
-        <li></li>
+        <li><a class = "no-click" >I'm a link</a></li>
         <li>
             <span>
                 This is a span
@@ -61,5 +72,7 @@
         </li>
         <li><a href = ".">This is a 3rd link</a></li>
     </ol>
+
+    <button class = "no-click">I'm a button</button>
 </body>
 </html>
