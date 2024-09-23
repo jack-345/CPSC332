@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*element selector*/
+        table {
+            margin: auto;
+        }
+
+        th {
+            background-color: aqua;
+        }
+
+        /*overrides tr style*/
+        td {
+            background-color: bisque;
+        }
+
+        tr {
+            background-color: brown;
+        }
+
+        /*class selector*/
+        .no-click {
+            color: chocolate;
+            background-color: crimson;
+        }
+
+        /*ID selector*/
+        #table-span {
+            color: aliceblue;
+        }
+
+        li a{
+            background-color: blue;
+        }
+
+        a:hover, button:hover {
+            cursor: not-allowed;
+        }
+    </style>
+
+</head>
+<body>
+    <table>
+        <caption>This is a table</caption>
+        <tr>
+            <th>
+                <span id = "table-span">
+                    Table heading in span
+                </span>
+            </th>
+            <th>Column 2 heading</th>
+        </tr>
+        <tr>
+            <td><a href = ".">Row 1 1</a></td>
+            <td>
+                <span>Row 1 2</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><a href = ".">Row 2 1</a></td>
+            <td>
+                <span>Row 2 2</span>
+            </td>
+        </tr>
+    </table>
+
+    <ol>
+        <li><a class = "no-click" >I'm a link</a></li>
+        <li>
+            <span>
+                This is a span
+            </span>
+        </li>
+        <li><a href = ".">This is a 3rd link</a></li>
+    </ol>
+
+    <button class = "no-click">I'm a button</button>
+</body>
+</html>
