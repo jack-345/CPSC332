@@ -1,0 +1,365 @@
+<!--
+    Name: Jack Ou
+    Course: CPSC332
+    Assignment: HW3
+    Last Modified: 10/2/24
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href = "favicon.png" type = "image/png">
+    <title>Homework 3: Styling CV With CSS</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        /*container for 3-pane layout*/
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /*pane styling*/
+        .pane {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px;
+        }
+
+        /*defining pane width*/
+        .left-pane {
+            width: 20%;
+            background-color: #f7f7f7;
+        }
+
+        .center-pane {
+            width: 60%;
+            background-color: #ffffff;
+        }
+
+        .right-pane {
+            width: 20%;
+            background-color: #f7f7f7;
+        }
+
+        /*header styling*/
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: left; 
+            display: flex; 
+            align-items: center; 
+        }
+
+        header img {
+            width: 70px; 
+            height: 70px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin-right: 20px; 
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1.1em;
+        }
+
+        header a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        /*section styling*/
+        section {
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        section p, section ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /*defining pane flex*/
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left-pane, .center-pane, .right-pane {
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+        }
+
+        /*id selectors for table bordering*/
+        #education table, #education th, #education td {
+            border: 2px solid gray;
+        }
+
+        #career table, #career th, #career td {
+            border: 2px solid gray;
+        }
+
+        /*changing background color of rows to alternate*/
+        .alternating-rows tr:nth-child(even) {
+            background-color: lightgray; /* Light gray for even rows */
+        }
+
+        .alternating-rows tr:nth-child(odd) {
+            background-color: white; /* White for odd rows */
+        }
+
+        /*styling graphical hyperlink to have shadow and padding*/
+        a img {
+            filter: drop-shadow(16px 16px 20px rgb(43, 94, 126)) invert(0%);
+            padding: 2px;
+        }
+
+        /*styling core skills unordered list*/
+        #skills li {
+            padding: 10px; 
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s; 
+        }
+
+        /*styling interests ordered list to be consistent with core skills*/
+        #interests li {
+            padding: 10px; 
+            border-bottom: 1px solid #ddd; 
+            transition: background-color 0.3s; 
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!--Header-->
+    <header>
+        <img src="profile_picture.jpg" alt="profile_picture">
+        <div>
+            <h1>Jack Ou</h1>
+            <p>Email: <a href="mailto:jou@zagmail.gonzaga.edu">jou@zagmail.gonzaga.edu</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/jack-ou-4b6553241/">LinkedIn Profile</a> | GitHub: <a href="https://github.com/jack-345">GitHub Account</a></p>
+        </div>
+    </header>
+
+    <!--3 Pane Layout-->
+    <div class="container">
+
+        <!--Left Pane (Navigation)-->
+        <div class="pane left-pane">
+            <h2>Navigation</h2>
+            <nav>
+                <ul>
+                    <li><a href="#introduction">About Me</a></li>
+                    <li><a href="#career">Career Summary</a></li>
+                    <li><a href="#education">Education and Qualifications</a></li>
+                    <li><a href="#interests">Interests and Hobbies</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!--Center Pane-->
+        <div class="pane center-pane">
+
+            <!--Introduction-->
+            <section id="introduction">
+                <h2>About Me</h2>
+                <p>
+                    Computer Science Undergraduate at Gonzaga University with a passion for software development/engineering.
+                    Experienced in team projects requiring regular communication about project requirements.
+                    Highly adaptive to team environment and committed to continuous learning and improving programming skills.
+                    Eager to apply technical skills and creative problem-solving abilities in internships or entry-level positions to contribute effectively to dynamic projects in tech and video game industries.
+                </p>
+            </section>
+
+            <!--Career Summary-->
+            <section id="career">
+                <h2>Career Summary</h2>
+                <table class = "alternating-rows">
+                    <caption>Career Summary</caption>
+                    <caption>NOTE: these are made-up qualifications for the purpose of fulfilling the assigment requirements</caption>
+                    
+                    <tr>
+                        <th>Location</th>
+                        <th>Role</th>
+                        <th>Experience</th>
+                    </tr>
+            
+                    <tr>
+                        <td>Digital Extremes</td>
+                        <td>Senior Engine Programmer</td>
+                        <td>Writing maintainable, multi-platform code and ensuring improved engine performance</td>
+                    </tr>
+            
+                    <tr>
+                        <td>Gonzaga University</td>
+                        <td>Mathematics TA</td>
+                        <td>Grading MATH114 homework submissions</td>
+                    </tr>
+                    
+                </table>
+            </section>
+
+            <!--Education and Qualifications-->
+            <section id="education">
+                <h2>Education and Qualifications</h2>
+                <div class="degree">
+                    <h3>B.S. in Computer Science at Gonzaga University</h3>
+                    
+                    <table class = "alternating-rows">
+                        <caption>Courses</caption>
+                        <tr>
+                            <th>Course</th>
+                            <th>Description</th>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC121 - Computer Science I</th>
+                            <td>Introduction to Coding using C++, gained familiarity with virtual machines and Linux terminal commands</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC122 - Computer Science II</th>
+                            <td>Continuing from CPSC121, gained sorting and linked list experience</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC223 - Algorithms and Abstract Data Structures</th>
+                            <td>Analyzing best, worst, and average cases of algorithms and implementing further sorting algorithms in projects</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC224 - Software Development</th>
+                            <td>Developed programs using the OOP language Java and regularly using Git and GitHub for submissions, gained real-world team/group experience through regular meetings and communicating outside of lecture</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC260 - Computer Organization</th>
+                            <td>Digital logic, computer system components, machine-level code, memory organization and management, computer arithmetic, assembly-language programming, and basic connections between C and assembly</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC222 - Introduction to Data Science</th>
+                            <td>Learned how to use Python code to interpret and make data understandable through graphing and functions</td>
+                        </tr>
+                
+                        <tr>
+                            <th>CPSC332 - Web Development</th>
+                            <td>Web-based development with condensed stack-lite development experience</td>
+                        </tr>
+                        
+                    </table>
+                
+                    <!--QUALIFICATIONS TABLE-->
+                    <table class = "alternating-rows">
+                        <caption>Qualifications</caption>
+                        
+                        <tr>
+                            <th>Projects/Location</th>
+                            <th>Role/Responsibilities</th>
+                        </tr>
+                
+                        <tr>
+                            <th>Java Tetris</th>
+                            <td>JavaSwing GUI management and UX engineering</td>
+                        </tr>
+                
+                        <tr>
+                            <th>Personal GitHub Pages Repository</th>
+                            <td>Maintaining a public pages repository that hosts all previous projcets/work</td>
+                        </tr>
+                
+                    </table>
+                </div>
+            </section>
+
+            <!--Interests and Hobbies-->
+            <section id="interests">
+                <h2>Interests and Hobbies</h2>
+                <ol>
+                    <li>Video Games</li>
+                        <ul>
+                            <li>Video Game Development</li>
+                            <li>Playing Games of Various Genres</li>
+                            <li>Simulator/Simulation</li>
+                        </ul>
+                    <li>Hand Drawn Animation</li>
+                    <li>Drawing/Art</li>
+                    <li>Cars</li>
+                    <li>Motorsports</li>
+                        <ul>
+                            <li>Formula 1</li>
+                            <li>Super Formula</li>
+                            <li>Super GT</li>
+                            <li>World Endurance Championship</li>
+                            <a href = "https://www.fiawec.com/en/"><img src = "WEC Le Mans.jpg" alt = "24H of Le Mans 2023" id = "Le Mans 2023 Grid" width = "230" height = "175"></a>
+                            <li>GT World Challenge</li>
+                        </ul>
+                    <li>Computer Hardware/Components</li>
+                        <ul>
+                            <li>Computer System Assembly</li>
+                            <li>CPU Performance/Benchmarking</li>
+                            <li>GPU Performance/Benchmarking</li>
+                        </ul>
+                </ol>
+            </section>
+        </div>
+
+        <!--Right Pane (Core Skills)-->
+        <div class="pane right-pane">
+            <section id = "skills">
+                <h2>Core Skills</h2>
+            
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Git and GitHub Experience</li>
+                    <li>Object-Oriented Programming Experience</li>
+                    <li>Experience Using Multiple Code Languages</li>
+                    <ul>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>Assembly</li>
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <li>Group/Team Synergy and Development</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
