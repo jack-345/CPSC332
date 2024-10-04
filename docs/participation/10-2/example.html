@@ -31,11 +31,19 @@
     <button id = "add-div-button">Add a Div</button>
 
     <script>
+        let divNum = 1;
         //func
-        function createDiv() {
+        function createDiv(number) {
+
+            if (!parseInt(number)) {
+                number = divNum;
+                divNum++;
+            }
+
             const newDiv = document.createElement("div");
             newDiv.className = "styled-div";
             newDiv.textContent = "I am a div...!";
+            newDic.id = "dynamic-div-" + number;
 
             newDiv.addEventListener("mouseover", () => {
                 newDiv.style.backgroundColor = "#FFF000"
@@ -45,8 +53,20 @@
                 newDiv.style.backgroundColor = "";
             });
 
+            newDiv.addEventListener("click", announceID);
+
             document.getElementById("div-container").appendChild(newDiv);
         }
+
+        const divs = document.querySelector("div[id^ = 'dynamic-div-'']");
+
+        function announceID() {
+            document.getElementById("output-span").textContent = "My id is this: " + this.id;
+        };
+
+        function announceID(event) {
+            document.getElementById("output-span").textContent = "My id is this: " + event.target.id;
+        };
 
         function callbackFunction() {
             alert("I did something!");
@@ -57,8 +77,17 @@
             .addEventListener("click", createDiv);
 
         for (let index = 0; index < 5; index++) {
-            createDiv();
+            createDiv(number);
+            divNum++;
         }
+
+        //timer
+        let timerId = setInterval(updateTime, 1000);
+
+        function updateTime() {
+            let currentTime = new Date().toLocaleTimeString();
+            document.getElementById("current-time").textContent = currentTime;
+        };
 
     </script>
 
