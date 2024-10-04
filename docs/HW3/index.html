@@ -2,7 +2,7 @@
     Name: Jack Ou
     Course: CPSC332
     Assignment: HW3
-    Last Modified: 10/2/24
+    Last Modified: 10/3/24
 -->
 
 <!DOCTYPE html>
@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "icon" href = "favicon.png" type = "image/png">
     <title>Homework 3: Styling CV With CSS</title>
+
     <style>
 
         body {
@@ -19,37 +20,6 @@
             background-color: #f4f4f9;
             color: #333;
             padding: 20px;
-        }
-
-        /*container for 3-pane layout*/
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /*pane styling*/
-        .pane {
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin: 10px;
-        }
-
-        /*defining pane width*/
-        .left-pane {
-            width: 20%;
-            background-color: #f7f7f7;
-        }
-
-        .center-pane {
-            width: 60%;
-            background-color: #ffffff;
-        }
-
-        .right-pane {
-            width: 20%;
-            background-color: #f7f7f7;
         }
 
         /*header styling*/
@@ -62,74 +32,59 @@
             align-items: center; 
         }
 
-        header img {
-            width: 70px; 
-            height: 70px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            margin-right: 20px; 
-        }
-
-        header h1 {
-            font-size: 2em;
-            margin-bottom: 5px;
-        }
-
-        header p {
-            font-size: 1.1em;
-        }
-
+        /* EXTRA CREDIT special effect */
         header a {
-            color: #ffcc00;
-            text-decoration: none;
+            color: white;
+            text-shadow: 0 0 3px red, 0 0 6px darkblue;
         }
 
-        /*section styling*/
-        section {
-            margin-bottom: 40px;
+        header img {
+            width: 650px;
+            height: 350px;
         }
 
-        section h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
+        profile img {
+            width: 90px; 
+            height: 90px; 
+            object-fit: cover;
+            padding-left: 180px;
         }
 
-        section p, section ul {
-            font-size: 1.1em;
-            line-height: 1.6;
+        .container {
+            display: flex;
+            justify-content: space-between;
+
+            padding-left: 10px;
+            padding-right: 55px;
+            padding-top: 15px;
+
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px;
         }
 
-        /*defining pane flex*/
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .left-pane, .center-pane, .right-pane {
-                width: 100%;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            header p {
-                font-size: 1em;
-            }
+        .column-left {
+            flex: 0 0 40%;
+            padding: 10px;
+            border: 1px solid #ccc;
         }
 
-        /*id selectors for table bordering*/
-        #education table, #education th, #education td {
-            border: 2px solid gray;
+        .column-right {
+            flex: 0 0 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
         }
 
+        /*table bordering*/
         #career table, #career th, #career td {
             border: 2px solid gray;
         }
 
-        /*changing background color of rows to alternate*/
+        #education table, #education th, #education td {
+            border: 2px solid gray;
+        }
+
+        /*alternating table row colors*/
         .alternating-rows tr:nth-child(even) {
             background-color: lightgray; /* Light gray for even rows */
         }
@@ -138,7 +93,7 @@
             background-color: white; /* White for odd rows */
         }
 
-        /*styling graphical hyperlink to have shadow and padding*/
+        /*graphical hyperlink styling*/
         a img {
             filter: drop-shadow(16px 16px 20px rgb(43, 94, 126)) invert(0%);
             padding: 2px;
@@ -159,40 +114,36 @@
         }
 
     </style>
-</head>
 
+</head>
 <body>
 
-    <!--Header-->
+    <!--navigation header with section fragments-->
     <header>
-        <img src="profile_picture.jpg" alt="profile_picture">
-        <div>
-            <h1>Jack Ou</h1>
-            <p>Email: <a href="mailto:jou@zagmail.gonzaga.edu">jou@zagmail.gonzaga.edu</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/jack-ou-4b6553241/">LinkedIn Profile</a> | GitHub: <a href="https://github.com/jack-345">GitHub Account</a></p>
-        </div>
+        <h1>Navigation</h1>
+
+        <nav>
+            <ul>
+                <li><a href="#introduction">About Me</a></li>
+                <li><a href="#career">Career Summary</a></li>
+                <li><a href="#education">Education and Qualifications</a></li>
+                <li><a href="#interests">Interests and Hobbies</a></li>
+            </ul>
+        </nav>
+
+        <img src = "Gonzaga-Bulldogs-Basketball-Logo.png" alt = "bulldog logo" type = "image/png" id = "header-logo">
     </header>
 
-    <!--3 Pane Layout-->
-    <div class="container">
+    <div class = "container">
+        <!--left column for profile/introduction-->
+        <div class = "column-left">
+            <profile>
+                <img src="profile_picture.jpg" alt="profile_picture">
+                <h1>Jack Ou</h1>
+                <p>Email: <a href="mailto:jou@zagmail.gonzaga.edu">jou@zagmail.gonzaga.edu</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/jack-ou-4b6553241/">LinkedIn Profile</a> | GitHub: <a href="https://github.com/jack-345">GitHub Account</a></p>
+            </profile>
 
-        <!--Left Pane (Navigation)-->
-        <div class="pane left-pane">
-            <h2>Navigation</h2>
-            <nav>
-                <ul>
-                    <li><a href="#introduction">About Me</a></li>
-                    <li><a href="#career">Career Summary</a></li>
-                    <li><a href="#education">Education and Qualifications</a></li>
-                    <li><a href="#interests">Interests and Hobbies</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <!--Center Pane-->
-        <div class="pane center-pane">
-
-            <!--Introduction-->
             <section id="introduction">
                 <h2>About Me</h2>
                 <p>
@@ -203,6 +154,30 @@
                 </p>
             </section>
 
+            <section id = "skills">
+                <h2>Core Skills</h2>
+            
+                <ul>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Git and GitHub Experience</li>
+                    <li>Object-Oriented Programming Experience</li>
+                    <li>Experience Using Multiple Code Languages</li>
+                    <ul>
+                        <li>C++</li>
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>Assembly</li>
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <li>Group/Team Synergy and Development</li>
+                </ul>
+            </section>
+        </div>
+
+        <!--right column for main content-->
+        <div class = "column-right">
             <!--Career Summary-->
             <section id="career">
                 <h2>Career Summary</h2>
@@ -335,31 +310,7 @@
                 </ol>
             </section>
         </div>
-
-        <!--Right Pane (Core Skills)-->
-        <div class="pane right-pane">
-            <section id = "skills">
-                <h2>Core Skills</h2>
-            
-                <ul>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Git and GitHub Experience</li>
-                    <li>Object-Oriented Programming Experience</li>
-                    <li>Experience Using Multiple Code Languages</li>
-                    <ul>
-                        <li>C++</li>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>Assembly</li>
-                        <li>HTML</li>
-                        <li>JavaScript</li>
-                    </ul>
-                    <li>Group/Team Synergy and Development</li>
-                </ul>
-            </section>
-        </div>
     </div>
+    
 </body>
-
 </html>
