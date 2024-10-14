@@ -17,11 +17,46 @@
             let container = document.getElementById("container");
             //$ in front to make things a JQuery object
             let $container = jQuery(document.getElementById("container"));
-        });
+
+            
         console.log($container);
         console.log(container);
 
         let $containerToo = $("#container");
+
+        $("ol").addClass("ordered-list");
+        $(".ordered-list").append("<li> jQuery Intro </li>");
+        
+        $(".ordered-list").append($("<li>").text("Selectors"));
+
+        let $filteredContent = $("li:contains('jQuery')");
+        console.log($filteredContent);
+
+        $("#container")
+            .append($("<button>")
+                .text("Click me!")
+                .attr("id", "event-button"));
+
+        $("#event-button").on("click", log);
+
+        function log() {
+            console.log("clicked");
+        }
+
+        $("div").css("border", "2x double purple");
+
+        //literal css 
+        $("div").css({
+            padding: "10px",
+            borderRadius: "10px",
+            marginTop: "10px",
+            "background-color": "rgb(235, 97, 35)"
+        });
+
+
+        });
+
+
     </script>
 
     <title>Hello JQuery</title>
