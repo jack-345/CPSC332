@@ -1,0 +1,137 @@
+<!--
+    Name: Jack Ou
+    Course: CPSC332
+    Assignment: HW4
+    Last Modified: 10/4/2024
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 4: Halloween Themed Candy Collection</title>
+    <style>
+        .styled-div {
+            border: 2px solid #56d465;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            transition: background-color 0.3s;
+            color: rgb(151, 51, 209);
+            border-radius: 25px;
+            width: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        span {
+            font-size: x-large;
+        }
+
+        th {
+            font-size: x-large;
+            padding: 10px;
+        }
+
+        header {
+            color: lightsalmon;
+            text-align: center;
+            background-color: #ab1d4f;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 10px;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        footer {
+            color: lightsalmon;
+            text-align: center;
+            background-color: #ab1d4f;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 10px;
+        }
+
+        .styled-div img {
+            display: block;
+            margin: 10px auto;
+            width: 100px;
+            height: auto;
+            align-items: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Spooky Candy Collection</h1>
+    </header>
+
+    <main>
+    
+        <div class="container" id="div-container">
+            <!--divs generated here-->
+        </div>
+
+    </main>
+
+    <!--EXTRA CREDIT footer message-->
+    <footer>
+        <h1>Happy Halloween!</h1>
+    </footer>
+
+    <script>
+        let divNum = 1;
+
+        //arrays of indexed candy name strings and image file names
+        let candyNames = ["Snickers", "Skittles", "Twix", "KitKat", "Jolly Rancher", "Starburst"];
+        let candyImages = ["snickers.jpg", "skittles.jpg", "twix.jpg", "kitkat.jpg", "jolly rancher.jpg", "starburst.jpg"];
+
+        function createDiv(candyName, candyImage) {
+            const newDiv = document.createElement("div");
+            newDiv.className = "styled-div";
+            newDiv.textContent = "I am candy! My kind of candy is " + candyName + "!"; 
+            newDiv.id = "dynamic-div-" + divNum;
+            divNum++;
+
+            //adding images into div containers
+            const candyImg = document.createElement("img");
+            candyImg.src = candyImage;
+            candyImg.alt = candyName; //makes alt attribute correspond to candy name
+            candyImg.style.width = "100px";
+            candyImg.style.height = "auto";
+            //appending images
+            newDiv.appendChild(candyImg);
+
+            //changes background color to show mouse cursor over element
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.backgroundColor = "#fbfaf4";
+            });
+            //reverts background color to show mouse cursor leaving element
+            newDiv.addEventListener("mouseout", () => {
+                newDiv.style.backgroundColor = "";
+            });
+
+            document.getElementById("div-container").appendChild(newDiv);
+            };
+
+        //for loop to create 6 initial divs with candy names and images
+        for (let i = 0; i < candyNames.length; i++) {
+            createDiv(candyNames[i], candyImages[i]);
+        };
+
+    </script>
+
+</body>
+
+</html>
