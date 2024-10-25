@@ -1,0 +1,38 @@
+/*
+    Name: Jack Ou
+    Class: CPSC332
+    Assignment: Homework 6 jQuery
+    Last Modified: 10/24/2024
+*/
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.wrapper {
+    margin-top: 50px;
+}
+
+#timer {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #000;
+    background-color: grey;
+}
+
+button {
+    margin: 10px;
+}
+
+.styled-button {
+    border: 2px solid black;
+    background-color: lightblue;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.timer-background {
+    padding: 20px;
+    border-radius: 10px;
+}
